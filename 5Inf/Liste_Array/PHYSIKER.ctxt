@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=PHYSIKER
+comment1.params=vorname\ nachname
+comment1.target=PHYSIKER(java.lang.String,\ java.lang.String)
+comment2.params=vorname\ nachname\ geburtsjahr\ todesjahr
+comment2.target=PHYSIKER(java.lang.String,\ java.lang.String,\ int,\ int)
+comment3.params=
+comment3.target=void\ Ausgeben()
+numComments=4

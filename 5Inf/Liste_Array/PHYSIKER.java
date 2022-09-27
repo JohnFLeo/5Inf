@@ -41,6 +41,9 @@ public class PHYSIKER implements DATENELEMENT
     
     @Override
     public boolean IstGleich(DATENELEMENT d){
+        if(!(d instanceof PHYSIKER)){
+            return false;
+        }
         return nachname.equals( ((PHYSIKER) d).nachname) && vorname.equals( ((PHYSIKER) d).vorname );
     }
 }

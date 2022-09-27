@@ -18,8 +18,18 @@ public class LISTE
     }
 
     // Methoden
+	private boolean IstGueltig(DATENELEMENT d){
+		//doppelte Einträge vermeiden
+		if(d == null){
+			return false;
+		}
+		if(Suchen(d) > -1){
+			return false;
+		}
+		return true;
+	}
     public void Hinzufuegen(DATENELEMENT d){
-        if(anzahl <= elemente.length){  
+        if(anzahl < elemente.length && IstGueltig(d)){  
             elemente[anzahl] = d;
             anzahl = anzahl + 1;   
         }
@@ -31,7 +41,7 @@ public class LISTE
                 return i;
             }
         }
-        return -404;
+        return -1;
     }
 
     public void Entfernen(int nr){
@@ -58,7 +68,7 @@ public class LISTE
             elemente[i].Ausgeben();
         }
         System.out.println();
-        System.out.println("- - - - - - - - - - Liste (" + anzahl + "/" + elemente.length + " Elemente) - - - - - - - - - -");
+        System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
         System.out.println();
     }
 

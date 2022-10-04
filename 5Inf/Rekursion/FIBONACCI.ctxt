@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=FIBONACCI
+comment1.params=
+comment1.target=FIBONACCI()
+comment2.params=n
+comment2.target=int\ FibonacciZahlIterativBerechnen(int)
+comment3.params=n
+comment3.target=int\ FibonacciZahlRekursivBerechnenStarten(int)
+comment4.params=n
+comment4.target=int\ FibonacciZahlRekursivBerechnen(int)
+numComments=5

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=FAKULTAET
+comment1.params=
+comment1.target=FAKULTAET()
+comment2.params=n
+comment2.target=int\ FakultaetIterativBerechnen(int)
+comment3.params=n
+comment3.target=int\ FakultaetRekursivBerechnen(int)
+numComments=4

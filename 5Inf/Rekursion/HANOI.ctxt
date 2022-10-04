@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=HANOI
+comment1.params=scheibenzahl
+comment1.target=HANOI(int)
+comment2.params=vonSpiess\ zuSpiess
+comment2.target=void\ Umsetzen(int,\ int)
+comment3.params=
+comment3.target=void\ HanoiLoesen()
+numComments=4

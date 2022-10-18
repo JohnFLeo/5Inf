@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=LISTE
+comment1.params=
+comment1.target=LISTE()
+comment2.params=d
+comment2.target=boolean\ IstGueltig(DATENELEMENT)
+comment3.params=d
+comment3.target=void\ Hinzufuegen(DATENELEMENT)
+comment4.params=d
+comment4.target=int\ Suchen(DATENELEMENT)
+comment5.params=nr
+comment5.target=void\ Entfernen(int)
+comment6.params=d
+comment6.target=void\ Entfernen(DATENELEMENT)
+comment7.params=
+comment7.target=int\ AnzahlGeben()
+comment8.params=
+comment8.target=void\ Ausgeben()
+numComments=9

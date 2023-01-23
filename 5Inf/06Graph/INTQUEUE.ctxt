@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=INTQUEUE
+comment1.params=max_anz
+comment1.target=INTQUEUE(int)
+comment2.params=wert
+comment2.target=void\ Enqueue(int)
+comment3.params=
+comment3.target=int\ Dequeue()
+comment4.params=
+comment4.target=boolean\ Peek()
+numComments=5

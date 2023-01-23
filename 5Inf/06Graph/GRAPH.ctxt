@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=GRAPH
+comment1.params=max_anzahl
+comment1.target=GRAPH(int)
+comment10.params=start_knoten
+comment10.target=void\ Tiefensuche(java.lang.String)
+comment11.params=start_nr
+comment11.target=void\ TSBesuchen(int)
+comment12.params=start_knoten
+comment12.target=void\ Breitensuche(java.lang.String)
+comment2.params=max_anzahl
+comment2.target=void\ MatrixInitialisieren(int)
+comment3.params=bezeichnung
+comment3.target=void\ KnotenHinzufuegen(java.lang.String)
+comment4.params=bezeichnung
+comment4.target=int\ KnotennummerGeben(java.lang.String)
+comment5.params=start_knoten\ ziel_knoten\ gewicht
+comment5.target=void\ GerichteteKanteHinzufuegen(java.lang.String,\ java.lang.String,\ int)
+comment6.params=start_knoten\ ziel_knoten\ gewicht
+comment6.target=void\ KanteHinzufuegen(java.lang.String,\ java.lang.String,\ int)
+comment7.params=
+comment7.target=void\ MatrixAusgeben()
+comment8.params=text\ laenge
+comment8.target=java.lang.String\ TextFormatieren(java.lang.String,\ int)
+comment9.params=
+comment9.target=void\ MarkierungLoeschen()
+numComments=13

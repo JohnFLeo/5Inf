@@ -147,22 +147,30 @@ public class GRAPH
         INTQUEUE q = new INTQUEUE( knotenanzahl );
         MarkierungLoeschen();
         int nr = KnotennummerGeben( start_knoten );
-        q.Enqueue( nr );
-        System.out.print( knoten[ nr ].BezeichnungGeben() );
-        knoten[ nr ].Markieren();
-        while( q.Peek() )
+        if(nr > -1)
         {
-            for( int i = 0; i < knotenanzahl; i++)
+            q.Enqueue( nr );
+            System.out.print( knoten[ nr ].BezeichnungGeben() );
+            knoten[ nr ].Markieren();
+            while( q.Peek() )
             {
-                if( matrix[ nr ][ i ] > 0 && !knoten[ i ].MarkierungGeben() )
+                nr = q.Dequeue();
+                for( int i = 0; i < knotenanzahl; i++)
                 {
-                    q.Enqueue( i );
-                    System.out.print( " → " + knoten[ i ].BezeichnungGeben());   
-                    knoten[ i ].Markieren();
+                    if( matrix[ nr ][ i ] > 0 && !knoten[ i ].MarkierungGeben() )
+                    {
+                        BSBesuchen( i , q );
+                    }
                 }
             }
-            nr = q.Dequeue();
         }
+    }
+    
+    private void BSBesuchen( int nr, INTQUEUE q )
+    {
+        q.Enqueue( nr );
+        System.out.print( " → " + knoten[ nr ].BezeichnungGeben() );
+        knoten[ nr ].Markieren();
     }
     
 }

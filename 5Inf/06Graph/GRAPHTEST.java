@@ -3,11 +3,11 @@ public class GRAPHTEST
 {
     // Attribute
     private GRAPH graph;
-
+    
     // Konstruktor
 
     // Methoden
-    public void Testen()
+    public void Testen(String s_k_1, String s_k_2)
     {
         graph = new GRAPH( 14 );
         graph.KnotenHinzufuegen( "A" );
@@ -47,9 +47,24 @@ public class GRAPHTEST
 
         graph.MatrixAusgeben();
         System.out.println();
-        graph.Tiefensuche("UL");
         System.out.println();
-        graph.Breitensuche("UL");
+        System.out.println( "Tiefensuche ab " + s_k_1 );
+        graph.Tiefensuche(s_k_1);
+        System.out.println();
+        System.out.println();
+        System.out.println( "Breitensuche ab " + s_k_1 );
+        graph.Breitensuche(s_k_1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println( "Tiefensuche ab " + s_k_2 );
+        graph.Tiefensuche(s_k_2);
+        System.out.println();
+        System.out.println();
+        System.out.println( "Breitensuche ab " + s_k_2 );
+        graph.Breitensuche(s_k_2);
+        System.out.println();
+        System.out.println();
     }
 
 }

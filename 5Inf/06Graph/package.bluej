@@ -1,12 +1,12 @@
 #BlueJ package file
-dependency1.from=GRAPH
-dependency1.to=KNOTEN
+dependency1.from=GRAPHTEST
+dependency1.to=GRAPH
 dependency1.type=UsesDependency
 dependency2.from=GRAPH
-dependency2.to=INTQUEUE
+dependency2.to=KNOTEN
 dependency2.type=UsesDependency
-dependency3.from=GRAPHTEST
-dependency3.to=GRAPH
+dependency3.from=GRAPH
+dependency3.to=INTQUEUE
 dependency3.type=UsesDependency
 editor.fx.0.height=838
 editor.fx.0.width=1550

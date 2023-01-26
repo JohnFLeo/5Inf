@@ -4,11 +4,16 @@ public class KNOTEN
     // Attribute
     private String bezeichnung;
     private boolean markiert;
+    int x;
+    int y;
+    
     // Konstruktor
-    public KNOTEN ( String bezeichnung )
+    public KNOTEN ( String bezeichnung, int x, int y)
     {
         this.bezeichnung = bezeichnung;
         markiert = false;
+        this.x = x;
+        this.y = y;
     }
 
     // Methoden

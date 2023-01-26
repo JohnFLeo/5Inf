@@ -6,6 +6,7 @@ public class GRAPH
     
     private int knotenanzahl;
     private int[][] matrix;
+    GraphenAnzeige ga;
     // Konstruktor
     public GRAPH ( int max_anzahl )
     {
@@ -28,11 +29,11 @@ public class GRAPH
         }
     }
 
-    public void KnotenHinzufuegen( String bezeichnung )
+    public void KnotenHinzufuegen( String bezeichnung, int x, int y)
     {
         if( knotenanzahl < knoten.length )
         {
-            knoten[ knotenanzahl ] = new KNOTEN( bezeichnung );
+            knoten[ knotenanzahl ] = new KNOTEN( bezeichnung ,x,y);
             knotenanzahl = knotenanzahl + 1;
         }
     }
@@ -144,7 +145,11 @@ public class GRAPH
     }
     //Weitere Funktionalität
     public void GraphAnzeigen(){
-        GraphenAnzeige ga = new GraphenAnzeige(knoten,matrix);
+        if(ga == null){
+            ga = new GraphenAnzeige(knoten,matrix);
+        }
+        
+        ga.Anzeigen();
     }
     public void MatrixAusgeben(){
         int laenge = 5;

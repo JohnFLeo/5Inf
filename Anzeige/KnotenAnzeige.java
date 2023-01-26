@@ -5,19 +5,28 @@ public class KnotenAnzeige extends Anzeige
     // Attribute
     int x;
     int y;
-    KnotenAnzeige[] knotenA;
+    int abstand = 60;
+    int rand = 100;
+    int breite = 50;
+    int scale = 15;
+    KNOTEN knoten;
     // Konstruktor
-    public KnotenAnzeige (Fenster fenster, int x, int y)
+    public KnotenAnzeige (Fenster fenster, int x, int y, KNOTEN k)
     {
         super(fenster);
-        this.x = x;
-        this.y = y;
+        this.x = (int)((scale*x)/24)* abstand + rand;
+        this.y = (int)((scale*y)/24)* abstand + rand;
+        knoten = k;
     }
     // Methoden
     @Override 
     public void Anzeigen(){
         imageG.setColor(Color.BLUE);
-        imageG.fillRect(x*60+50,y*60+50,50,50);
+        imageG.fillOval((int)(x-0.5*breite),(int)(y-0.5*breite),breite,breite);
+        
+        imageG.setColor(Color.WHITE);
+        imageG.setFont(new Font("MyFont",Font.BOLD, 14));
+        imageG.drawString(knoten.BezeichnungGeben(),x-5, y);
         f.repaint();
     }
     //Getter

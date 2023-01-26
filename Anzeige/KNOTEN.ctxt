@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=KNOTEN
-comment1.params=bezeichnung
-comment1.target=KNOTEN(java.lang.String)
+comment1.params=bezeichnung\ x\ y
+comment1.target=KNOTEN(java.lang.String,\ int,\ int)
 comment2.params=
 comment2.target=java.lang.String\ BezeichnungGeben()
 comment3.params=

@@ -8,20 +8,20 @@ public class GRAPHTEST
     public void Testen()
     {
         graph = new GRAPH(20);
-        graph.KnotenHinzufuegen("A");
-        graph.KnotenHinzufuegen("F");
-        graph.KnotenHinzufuegen("FD");
-        graph.KnotenHinzufuegen("HO");
-        graph.KnotenHinzufuegen("KA");
-        graph.KnotenHinzufuegen("LI");
-        graph.KnotenHinzufuegen("M");
-        graph.KnotenHinzufuegen("N");
-        graph.KnotenHinzufuegen("PA");
-        graph.KnotenHinzufuegen("R");
-        graph.KnotenHinzufuegen("RO");
-        graph.KnotenHinzufuegen("S");
-        graph.KnotenHinzufuegen("UL");
-        graph.KnotenHinzufuegen("WÜ");
+        graph.KnotenHinzufuegen("A",12,14);
+        graph.KnotenHinzufuegen("F",4,4);
+        graph.KnotenHinzufuegen("FD",8,1);
+        graph.KnotenHinzufuegen("HO",16, 2);
+        graph.KnotenHinzufuegen("KA",3,10);
+        graph.KnotenHinzufuegen("LI",8,18);
+        graph.KnotenHinzufuegen("M", 15,15);
+        graph.KnotenHinzufuegen("N",13, 8);
+        graph.KnotenHinzufuegen("PA", 22, 13);
+        graph.KnotenHinzufuegen("R", 17, 10);
+        graph.KnotenHinzufuegen("RO",17, 17);
+        graph.KnotenHinzufuegen("S",6, 11);
+        graph.KnotenHinzufuegen("UL", 9, 14);
+        graph.KnotenHinzufuegen("WÜ", 9, 5);
         
         graph.KanteHinzufuegen( "A", "M", 79 );
         graph.KanteHinzufuegen( "A", "UL", 88 );
@@ -43,12 +43,8 @@ public class GRAPHTEST
         graph.KanteHinzufuegen( "R", "PA", 121);
         graph.KanteHinzufuegen( "R", "HO", 176);
         
-        graph.MatrixAusgeben();
-        //System.out.println("Tiefensuche ab KA");
-        //graph.Tiefensuche("KA");
-        //System.out.println("Breitensuche ab KA");
-        //graph.Breitensuche("KA");
-        graph.ModifzierteTiefensuche("WÜ", "N");
+        graph.GraphAnzeigen();
+        graph.KnotenHinzufuegen("LA", 24, 24);
         graph.GraphAnzeigen();
     }
 }

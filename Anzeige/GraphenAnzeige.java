@@ -27,6 +27,13 @@ public class GraphenAnzeige extends Anzeige
     }
     @Override
     public void Anzeigen(){
+        g.setColor(Color.WHITE);
+        g.fillRect(0,0,f.getSize().width,f.getSize().height);
+        for(int i = 0; i< anzahl; i++){
+            if(knotenA[i] != null){
+                knotenA[i].updatePos();
+            }
+        }
         for(int i = 0; i< anzahl; i++){
             for(int j = 0; j< anzahl; j++){
                 if(kanten[i][j]>0){
@@ -47,6 +54,6 @@ public class GraphenAnzeige extends Anzeige
                 knotenA[i].Anzeigen();
             }
         }
-
+        f.repaint();
     }
 }

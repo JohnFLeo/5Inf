@@ -7,10 +7,11 @@ public class Fenster extends JFrame
     // Attribute
     BufferedImage img;
     Graphics graphics;
+    Dimension sizeEcht;
     // Konstruktor
     public Fenster ()
     {
-        Dimension sizeEcht = Toolkit.getDefaultToolkit().getScreenSize();
+        sizeEcht = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(sizeEcht);
         setVisible(true);
         img = new BufferedImage(getSize().width,getSize().height, BufferedImage.TYPE_INT_ARGB);
@@ -19,7 +20,9 @@ public class Fenster extends JFrame
         getGraphicsBuffer().fillRect(0,0,getSize().width,getSize().height);
         repaint();
     }
-    
+    public Dimension getsizeEcht(){
+        return getSize();
+    }
     // Methoden
     public Graphics getGraphicsBuffer(){
         return graphics;

@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.target=KnotenAnzeige
-comment1.params=fenster\ x\ y\ k
-comment1.target=KnotenAnzeige(Fenster,\ int,\ int,\ KNOTEN)
+comment1.params=fenster\ k
+comment1.target=KnotenAnzeige(Fenster,\ KNOTEN)
 comment2.params=
-comment2.target=void\ Anzeigen()
+comment2.target=void\ updatePos()
 comment3.params=
-comment3.target=int\ getX()
+comment3.target=void\ Anzeigen()
 comment4.params=
-comment4.target=int\ getY()
-numComments=5
+comment4.target=int\ getX()
+comment5.params=
+comment5.target=int\ getY()
+numComments=6

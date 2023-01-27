@@ -15,7 +15,7 @@ public class KNOTEN
         markiert = false;
         this.x = x;
         this.y = y;
-        ka = new KnotenAnzeige(ga.f, x, y, this);
+        ka = new KnotenAnzeige(ga.f, this);
         ga.addKa(ka);
     }
 

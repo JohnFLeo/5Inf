@@ -45,7 +45,10 @@ public class GRAPHTEST
         
         graph.GraphAnzeigen();
         //graph.ModifzierteTiefensuche("UL","A");
-        graph.KnotenHinzufuegen("HEEEEHEEE", 22, 22);
+        //graph.KnotenHinzufuegen("HEEEEHEEE", 22, 22);
+        //graph.GraphAnzeigen();
+    }
+    public void anzeigen(){
         graph.GraphAnzeigen();
     }
 }

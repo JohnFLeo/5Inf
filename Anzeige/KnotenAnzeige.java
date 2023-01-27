@@ -21,7 +21,11 @@ public class KnotenAnzeige extends Anzeige
     // Methoden
     @Override 
     public void Anzeigen(){
-        imageG.setColor(Color.BLUE);
+        if(knoten.MarkierungGeben()){
+            imageG.setColor(Color.RED);
+        }else{
+            imageG.setColor(Color.BLUE);
+        }
         imageG.fillOval((int)(x-0.5*breite),(int)(y-0.5*breite),breite,breite);
         
         imageG.setColor(Color.WHITE);

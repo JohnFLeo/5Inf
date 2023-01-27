@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=KNOTEN
-comment1.params=bezeichnung\ x\ y
-comment1.target=KNOTEN(java.lang.String,\ int,\ int)
+comment1.params=bezeichnung\ x\ y\ ga
+comment1.target=KNOTEN(java.lang.String,\ int,\ int,\ GraphenAnzeige)
 comment2.params=
 comment2.target=java.lang.String\ BezeichnungGeben()
 comment3.params=
@@ -12,4 +12,6 @@ comment5.params=
 comment5.target=boolean\ MarkierungGeben()
 comment6.params=bezeichnung
 comment6.target=boolean\ IstGleich(java.lang.String)
-numComments=7
+comment7.params=
+comment7.target=void\ updateAnzeige()
+numComments=8

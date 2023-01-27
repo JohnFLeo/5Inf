@@ -1,7 +1,11 @@
 #BlueJ class context
 comment0.target=GraphenAnzeige
-comment1.params=knoten\ matrix
-comment1.target=GraphenAnzeige(KNOTEN[],\ int[][])
-comment2.params=
-comment2.target=void\ Anzeigen()
-numComments=3
+comment1.params=maxanz
+comment1.target=GraphenAnzeige(int)
+comment2.params=ka
+comment2.target=void\ addKa(KnotenAnzeige)
+comment3.params=matrix
+comment3.target=void\ updateKanten(int[][])
+comment4.params=
+comment4.target=void\ Anzeigen()
+numComments=5

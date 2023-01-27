@@ -5,28 +5,30 @@ public class GraphenAnzeige extends Anzeige
 {
     // Attribute
     KnotenAnzeige[] knotenA;
-    int[][] kanten;
+    int anzahl;
+    int [][] kanten;
     Graphics g;
     // Konstruktor
-    public GraphenAnzeige(KNOTEN[] knoten, int[][] matrix)
+    public GraphenAnzeige(int maxanz)
     {
-        super(new Fenster());   
-        knotenA = new KnotenAnzeige[knoten.length];
-        kanten = matrix;
-        for(int i = 0; i < knoten.length; i = i + 1){
-            if(!(knoten[i] == null)){
-                int kX = knoten[i].x;
-                int kY = knoten[i].y;
-                knotenA[i] = new KnotenAnzeige(super.f, kX , kY, knoten[i]);
-            }
-        }
+        super(new Fenster());
+        anzahl = 0;
+        knotenA = new KnotenAnzeige[maxanz];
+        
         g = super.f.getGraphicsBuffer();
     }
     // Methoden
+    public void addKa(KnotenAnzeige ka){
+        knotenA[anzahl] = ka;
+        anzahl = anzahl + 1;
+    }
+    public void updateKanten(int [][] matrix){
+        kanten = matrix;
+    }
     @Override
     public void Anzeigen(){
-        for(int i = 0; i< knotenA.length; i++){
-            for(int j = 0; j< knotenA.length; j++){
+        for(int i = 0; i< anzahl; i++){
+            for(int j = 0; j< anzahl; j++){
                 if(kanten[i][j]>0){
                     //g.setColor(Color.GREEN);
                     //g.drawLine(knotenA[i].x, knotenA[i].y, knotenA[j].x, knotenA[j].y);
@@ -40,9 +42,9 @@ public class GraphenAnzeige extends Anzeige
                 }
             }
         }
-        for(KnotenAnzeige i : knotenA){
-            if(i != null){
-                i.Anzeigen();
+        for(int i = 0; i< anzahl; i++){
+            if(knotenA[i] != null){
+                knotenA[i].Anzeigen();
             }
         }
 

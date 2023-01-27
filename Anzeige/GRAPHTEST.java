@@ -44,7 +44,8 @@ public class GRAPHTEST
         graph.KanteHinzufuegen( "R", "HO", 176);
         
         graph.GraphAnzeigen();
-        graph.KnotenHinzufuegen("LA", 24, 24);
+        //graph.ModifzierteTiefensuche("UL","A");
+        graph.KnotenHinzufuegen("HEEEEHEEE", 22, 22);
         graph.GraphAnzeigen();
     }
 }

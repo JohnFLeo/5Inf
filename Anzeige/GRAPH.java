@@ -3,7 +3,7 @@ public class GRAPH
 {
     // Attribute
     private KNOTEN[] knoten;
-    
+
     private int knotenanzahl;
     private int[][] matrix;
     GraphenAnzeige ga;
@@ -13,7 +13,7 @@ public class GRAPH
         knoten = new KNOTEN[ max_anzahl ];
         matrix = new int[ max_anzahl ][ max_anzahl ];
         MatrixInitialisieren( max_anzahl );
-        
+        ga = new GraphenAnzeige(max_anzahl);
     }
 
     // Methoden
@@ -33,7 +33,7 @@ public class GRAPH
     {
         if( knotenanzahl < knoten.length )
         {
-            knoten[ knotenanzahl ] = new KNOTEN( bezeichnung ,x,y);
+            knoten[ knotenanzahl ] = new KNOTEN( bezeichnung ,x,y, ga);
             knotenanzahl = knotenanzahl + 1;
         }
     }
@@ -59,6 +59,7 @@ public class GRAPH
         if(startnr > -1 && zielnr > -1){
             matrix[startnr][zielnr] = gewicht;
         }
+        ga.updateKanten(matrix);
     }
 
     public void KanteHinzufuegen(String startknoten, String zielknoten, int gewicht)
@@ -81,7 +82,7 @@ public class GRAPH
         q.Enqueue(nr);
         System.out.print(knoten[nr].BezeichnungGeben());
         knoten[nr].Markieren();
-        
+
         while(q.Peek()){
             int i = 0;
             while(i < knotenanzahl){
@@ -119,6 +120,7 @@ public class GRAPH
         } 
 
     }
+
     public void ModifzierteTiefensuche(String startknoten,String zielknoten){
         MarkierungLoeschen();
         int startnr = KnotennummerGeben(startknoten);
@@ -130,6 +132,7 @@ public class GRAPH
         }
         System.out.println();
     }
+
     private void MTSBesuchen(int nr, int zielnr, String weg, int laenge){
         if(nr  == zielnr){
             System.out.println(weg + "; Länge: " + laenge);
@@ -145,12 +148,9 @@ public class GRAPH
     }
     //Weitere Funktionalität
     public void GraphAnzeigen(){
-        if(ga == null){
-            ga = new GraphenAnzeige(knoten,matrix);
-        }
-        
         ga.Anzeigen();
     }
+
     public void MatrixAusgeben(){
         int laenge = 5;
         System.out.println();

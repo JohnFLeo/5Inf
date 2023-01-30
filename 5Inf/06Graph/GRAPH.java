@@ -52,12 +52,12 @@ public class GRAPH
 
     public void GerichteteKanteHinzufuegen( String start_knoten, String ziel_knoten, int gewicht )
     {
-        int start_nr = KnotennummerGeben(start_knoten);
+        int nr = KnotennummerGeben(start_knoten);
         int ziel_nr = KnotennummerGeben(ziel_knoten);
 
-        if( start_nr > -1 && ziel_nr > -1 )
+        if( nr > -1 && ziel_nr > -1 )
         {
-            matrix[ start_nr ][ ziel_nr ] = gewicht;
+            matrix[ nr ][ ziel_nr ] = gewicht;
         }
     }
 
@@ -110,31 +110,31 @@ public class GRAPH
         return erg;
     }
 
-    private void MarkierungLoeschen()
+    private void KnotenZuruecksetzen()
     {
         for( int i = 0; i < knotenanzahl; i++ )
         {
-            knoten[ i ].MarkierungLoeschen();
+            knoten[ i ].ZurueckSetzen();
         }
     }
 
     public void Tiefensuche( String start_knoten )
     {
-        MarkierungLoeschen();
-        int start_nr = KnotennummerGeben( start_knoten );
-        if(start_nr > -1 )
+        KnotenZuruecksetzen();
+        int nr = KnotennummerGeben( start_knoten );
+        if(nr > -1 )
         {
-            System.out.print( knoten[ start_nr ].BezeichnungGeben() );
-            TSBesuchen( start_nr );
+            System.out.print( knoten[ nr ].BezeichnungGeben() );
+            TSBesuchen( nr );
         }
     }
 
-    private void TSBesuchen( int start_nr )
+    private void TSBesuchen( int nr )
     {
-        knoten[ start_nr ].Markieren();
+        knoten[ nr ].Markieren();
         for( int i = 0; i < knotenanzahl; i++ )
         {
-            if( matrix[ start_nr ][ i ] > 0 && !knoten[ i ].MarkierungGeben() )
+            if( matrix[ nr ][ i ] > 0 && !knoten[ i ].MarkierungGeben() )
             {
                 System.out.print( " → " + knoten[ i ].BezeichnungGeben());
                 TSBesuchen(i);
@@ -145,7 +145,7 @@ public class GRAPH
     public void Breitensuche( String start_knoten )
     {
         INTQUEUE q = new INTQUEUE( knotenanzahl );
-        MarkierungLoeschen();
+        KnotenZuruecksetzen();
         int nr = KnotennummerGeben( start_knoten );
         if(nr > -1)
         {
@@ -165,12 +165,72 @@ public class GRAPH
             }
         }
     }
-    
+
     private void BSBesuchen( int nr, INTQUEUE q )
     {
         q.Enqueue( nr );
         System.out.print( " → " + knoten[ nr ].BezeichnungGeben() );
         knoten[ nr ].Markieren();
     }
-    
+
+    public void ModifizierteTiefensuche( String start_knoten, String ziel_knoten )
+    {
+        KnotenZuruecksetzen();
+        int start_nr = KnotennummerGeben( start_knoten );
+        int ziel_nr = KnotennummerGeben( ziel_knoten );
+        if( start_nr > -1 && ziel_nr > -1 )
+        {
+            MTSBesuchen( start_nr, ziel_nr, knoten[ start_nr ].BezeichnungGeben(), 0 );
+        }
+    }
+
+    private void MTSBesuchen( int nr, int ziel_nr, String weg, int laenge )
+    {
+        if(nr == ziel_nr)
+        {
+            System.out.println( weg + " | Länge: " + laenge );
+        }
+        knoten[ nr ].Markieren();
+        for( int i = 0; i < knotenanzahl; i++ )
+        {
+            if( matrix[ nr ][ i ] > 0 && !knoten[ i ].MarkierungGeben() )
+            {
+                String w = weg + " → " + knoten[ i ].BezeichnungGeben();
+                int l = laenge + matrix[ nr ][ i ];
+                MTSBesuchen( i, ziel_nr, w, l );
+            }
+        }
+        knoten[ nr ].MarkierungLoeschen();
+    }
+
+    public void Dijkstra( String start_knoten, String ziel_knoten )
+    {
+        int nr = KnotennummerGeben( start_knoten );
+        int ziel_nr = KnotennummerGeben( ziel_knoten );
+        if( nr > -1 && ziel_nr > -1 )
+        {
+            knoten[ nr ].distanz = 0;
+            while( nr > -1 || nr == ziel_nr )
+            {
+                
+                nr = MinimaldistanzKnotenGeben();
+            }
+        }
+    }
+
+    private int MinimaldistanzKnotenGeben()
+    {
+        int min_dist = Integer.MAX_VALUE;
+        int knoten_nr = -1;
+        for( int i = 0; i < knotenanzahl; i++ )
+        {
+            if( knoten[ i ].distanz < min_dist && !knoten[ i ].MarkierungGeben() )
+            {
+                min_dist = knoten[ i ].distanz;
+                knoten_nr = i;
+            }
+        }
+        return knoten_nr;
+    }
+
 }

@@ -1,5 +1,5 @@
 #BlueJ class context
 comment0.target=GRAPHTEST
-comment1.params=s_k_1\ s_k_2
-comment1.target=void\ Testen(java.lang.String,\ java.lang.String)
+comment1.params=knoten_1\ start_knoten\ ziel_knoten
+comment1.target=void\ Testen(java.lang.String,\ java.lang.String,\ java.lang.String)
 numComments=2

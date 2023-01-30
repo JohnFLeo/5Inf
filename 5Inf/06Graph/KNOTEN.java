@@ -3,6 +3,8 @@ public class KNOTEN
     // Attribute
     private String bezeichnung;
     private boolean markiert;
+    public KNOTEN vorgaenger;
+    public int distanz;
     
     // Konstruktor
     public KNOTEN ( String bezeichnung )
@@ -35,6 +37,23 @@ public class KNOTEN
     public boolean IstGleich( String bezeichnung )
     {
         return this.bezeichnung.equals( bezeichnung );
+    }
+    
+    public void ZurueckSetzen()
+    {
+        MarkierungLoeschen();
+        EntfernungMaximieren();
+        VorgaengerLoeschen();
+    }
+    
+    private void VorgaengerLoeschen()
+    {
+        vorgaenger = null;
+    }
+    
+    private void EntfernungMaximieren()
+    {
+        distanz = Integer.MAX_VALUE;
     }
     
 }

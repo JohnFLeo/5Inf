@@ -7,7 +7,7 @@ public class GRAPHTEST
     // Konstruktor
 
     // Methoden
-    public void Testen(String s_k_1, String s_k_2)
+    public void Testen( String knoten_1, String start_knoten, String ziel_knoten )
     {
         graph = new GRAPH( 14 );
         graph.KnotenHinzufuegen( "A" );
@@ -16,8 +16,8 @@ public class GRAPHTEST
         graph.KnotenHinzufuegen( "HO" );
         graph.KnotenHinzufuegen( "KA" );
         graph.KnotenHinzufuegen( "LI" );
-        graph.KnotenHinzufuegen( "N" );
         graph.KnotenHinzufuegen( "M" );
+        graph.KnotenHinzufuegen( "N" );
         graph.KnotenHinzufuegen( "PA" );
         graph.KnotenHinzufuegen( "R" );
         graph.KnotenHinzufuegen( "RO" );
@@ -48,23 +48,16 @@ public class GRAPHTEST
         graph.MatrixAusgeben();
         System.out.println();
         System.out.println();
-        System.out.println( "Tiefensuche ab " + s_k_1 );
-        graph.Tiefensuche(s_k_1);
+        System.out.println( "Tiefensuche ab " + knoten_1 );
+        graph.Tiefensuche(knoten_1);
         System.out.println();
         System.out.println();
-        System.out.println( "Breitensuche ab " + s_k_1 );
-        graph.Breitensuche(s_k_1);
+        System.out.println( "Breitensuche ab " + knoten_1 );
+        graph.Breitensuche(knoten_1);
         System.out.println();
         System.out.println();
-        System.out.println();
-        System.out.println( "Tiefensuche ab " + s_k_2 );
-        graph.Tiefensuche(s_k_2);
-        System.out.println();
-        System.out.println();
-        System.out.println( "Breitensuche ab " + s_k_2 );
-        graph.Breitensuche(s_k_2);
-        System.out.println();
-        System.out.println();
+        System.out.println( "Alle wege von " + start_knoten + " → " + ziel_knoten );
+        graph.ModifizierteTiefensuche(start_knoten, ziel_knoten);
     }
 
 }

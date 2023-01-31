@@ -205,15 +205,56 @@ public class GRAPH
 
     public void Dijkstra( String start_knoten, String ziel_knoten )
     {
+        KnotenZuruecksetzen();
         int nr = KnotennummerGeben( start_knoten );
         int ziel_nr = KnotennummerGeben( ziel_knoten );
         if( nr > -1 && ziel_nr > -1 )
         {
             knoten[ nr ].distanz = 0;
-            while( nr > -1 || nr == ziel_nr )
+            while( nr > -1 && nr != ziel_nr )
             {
-                
+                System.out.print( knoten[ nr ].BezeichnungGeben() + "( " + knoten[ nr ].distanz +  " ):" );
+                knoten[ nr ].Markieren();
+                for( int i = 0; i < knotenanzahl; i++ )
+                {
+                    if( matrix[ nr ][ i ] > 0 && !knoten[ i ].MarkierungGeben() )
+                    {
+                        System.out.print( " " + knoten[ i ].BezeichnungGeben() );
+                        if( knoten[ nr ].distanz + matrix[ nr ][ i ] < knoten[ i ].distanz )
+                        {
+                            knoten[ i ].distanz = knoten[ nr ].distanz + matrix[ nr ][ i ];
+                            knoten[ i ].vorgaenger = knoten[ nr ];
+                            System.out.print( "( " + knoten[ i ].distanz + " )" );
+                        }
+                    }
+                }
+                System.out.println();
                 nr = MinimaldistanzKnotenGeben();
+            }
+            if( nr > -1 )
+            {
+                String weg = "";
+                System.out.println( knoten[ nr ].BezeichnungGeben() + "( " + knoten[ nr ].distanz +  " ):" );
+                KNOTEN k = knoten[ nr ];
+                while( k != null )
+                {
+                    weg = k.BezeichnungGeben() + "  " + weg;
+                    k = k.vorgaenger;
+                }
+                System.out.println();
+                System.out.println( weg );
+                System.out.println( "Länge: " + knoten[ nr ].distanz );
+            }
+            else
+            {
+                System.out.println("F E H L E R ! ! !");
+                System.out.println("F E H L E R ! ! !");
+                System.out.println("F E H L E R ! ! !");
+                System.out.println("ZIELKNOTEN NICHT GEFUNDEN!!!");
+                System.out.println("F E H L E R ! ! !");
+                System.out.println("F E H L E R ! ! !");
+                System.out.println("F E H L E R ! ! !");
+                System.exit(404);
             }
         }
     }

@@ -7,7 +7,7 @@ public class GRAPHTEST
     // Konstruktor
 
     // Methoden
-    public void Testen( String knoten_1, String start_knoten, String ziel_knoten )
+    public void Testen( String knoten_1, String mts_start_knoten, String mts_ziel_knoten, String dijkstra_start_knoten, String dijkstra_ziel_knoten )
     {
         graph = new GRAPH( 14 );
         graph.KnotenHinzufuegen( "A" );
@@ -56,8 +56,14 @@ public class GRAPHTEST
         graph.Breitensuche(knoten_1);
         System.out.println();
         System.out.println();
-        System.out.println( "Alle wege von " + start_knoten + " → " + ziel_knoten );
-        graph.ModifizierteTiefensuche(start_knoten, ziel_knoten);
+        System.out.println( "Modifizierte Tiefensuche" );
+        System.out.println( "Alle wege von " + mts_start_knoten + " → " + mts_ziel_knoten );
+        graph.ModifizierteTiefensuche(mts_start_knoten, mts_ziel_knoten);
+        System.out.println();
+        System.out.println();
+        System.out.println( "Dijkstra" );
+        System.out.println( "Kürzester Weg " + dijkstra_start_knoten + " → " + dijkstra_ziel_knoten );
+        graph.Dijkstra(dijkstra_start_knoten, dijkstra_ziel_knoten);
     }
 
 }

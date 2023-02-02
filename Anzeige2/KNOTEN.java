@@ -4,7 +4,9 @@ public class KNOTEN
     // Attribute
     private String bezeichnung;
     private boolean markiert;
+    private boolean wegmarkiert;
     KnotenAnzeige ka;
+    GraphenAnzeige ga;
     int x;
     int y;
     public KNOTEN vorgaenger;
@@ -16,8 +18,10 @@ public class KNOTEN
         markiert = false;
         this.x = x;
         this.y = y;
+        this.ga = ga;
         ka = new KnotenAnzeige(ga.f, this);
         ga.addKa(ka);
+        
     }
 
     // Methoden
@@ -25,21 +29,22 @@ public class KNOTEN
         return bezeichnung;
     }
 
-    public void Markieren(){
+    public void Markieren(int delay){
         markiert = true;
         updateAnzeige();
         try {
-            Thread.sleep(100);
+            Thread.sleep(delay);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
 
-    public void MarkierenLoeschen(){
+    public void MarkierenLoeschen(int delay){
         markiert = false;
+        wegmarkiert = false;
         updateAnzeige();
         try {
-            Thread.sleep(100);
+            Thread.sleep(delay);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
@@ -47,9 +52,12 @@ public class KNOTEN
     public boolean MarkierungGeben(){
         return markiert;
     }
+    public boolean WegMarkierungGeben(){
+        return wegmarkiert;
+    }
     public void ZurueckSetzen()
     {
-        MarkierenLoeschen();
+        MarkierenLoeschen(0);
         EntfernungMaximieren();
         VorgaengerLoeschen();
     }
@@ -67,12 +75,18 @@ public class KNOTEN
     {
         return this.bezeichnung.equals( bezeichnung );
     }
-    public void WegAnzeigen(String startknoten){
-        ka.WegAnzeigen();
+    public void WegAnzeigen(String startknoten,int delay){
+        wegmarkiert = true;
+        ka.Anzeigen();
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         if(bezeichnung.equals(startknoten)){
             return;
         }
-        vorgaenger.WegAnzeigen(startknoten);
+        vorgaenger.WegAnzeigen(startknoten, delay);
     }
     public void updateAnzeige(){
         ka.Anzeigen();

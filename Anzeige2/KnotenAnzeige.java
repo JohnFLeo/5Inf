@@ -30,16 +30,9 @@ public class KnotenAnzeige extends Anzeige
         }else{
             imageG.setColor(Color.BLUE);
         }
-        imageG.fillOval((int)(x-0.5*breite),(int)(y-0.5*breite),breite,breite);
-        imageG.setColor(Color.WHITE);
-        imageG.setFont(new Font("MyFont",Font.BOLD, 14));
-        imageG.drawString(knoten.BezeichnungGeben(),x-5, y);
-        f.repaint();
-    }
-    
-    public void WegAnzeigen(){
-        updatePos();
-        imageG.setColor(Color.BLACK);
+        if(knoten.WegMarkierungGeben()){
+            imageG.setColor(Color.BLACK);
+        }
         imageG.fillOval((int)(x-0.5*breite),(int)(y-0.5*breite),breite,breite);
         imageG.setColor(Color.WHITE);
         imageG.setFont(new Font("MyFont",Font.BOLD, 14));
@@ -52,6 +45,12 @@ public class KnotenAnzeige extends Anzeige
     }
     public int getY(){
         return y;
+    }
+    public boolean getMarkiert(){
+        return knoten.MarkierungGeben();
+    }
+    public boolean getWegMarkiert(){
+        return knoten.WegMarkierungGeben();
     }
     //Setter
     

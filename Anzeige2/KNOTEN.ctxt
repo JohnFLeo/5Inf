@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=KNOTEN
+comment1.params=bezeichnung\ x\ y\ ga
+comment1.target=KNOTEN(java.lang.String,\ int,\ int,\ GraphenAnzeige)
+comment10.params=bezeichnung
+comment10.target=boolean\ IstGleich(java.lang.String)
+comment11.params=startknoten\ delay
+comment11.target=void\ WegAnzeigen(java.lang.String,\ int)
+comment12.params=
+comment12.target=void\ updateAnzeige()
+comment2.params=
+comment2.target=java.lang.String\ BezeichnungGeben()
+comment3.params=delay
+comment3.target=void\ Markieren(int)
+comment4.params=delay
+comment4.target=void\ MarkierenLoeschen(int)
+comment5.params=
+comment5.target=boolean\ MarkierungGeben()
+comment6.params=
+comment6.target=boolean\ WegMarkierungGeben()
+comment7.params=
+comment7.target=void\ ZurueckSetzen()
+comment8.params=
+comment8.target=void\ VorgaengerLoeschen()
+comment9.params=
+comment9.target=void\ EntfernungMaximieren()
+numComments=13

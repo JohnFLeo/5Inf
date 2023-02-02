@@ -45,14 +45,20 @@ public class GRAPHTEST
         
         graph.GraphAnzeigen();
         graph.MatrixAusgeben();
-        System.out.println("Von F nach PA:");
-        graph.Dijkstra("F", "PA");
-        //graph.ModifzierteTiefensuche("UL","A");
-        //graph.KnotenHinzufuegen("HEEEEHEEE", 22, 22);
-        //graph.GraphAnzeigen();
     }
     public void anzeigen(){
         graph.GraphAnzeigen();
-        graph.Dijkstra("F", "PA");
+    }
+    public void Dijkstra(String start, String ziel){
+        graph.Dijkstra(start, ziel, 100);
+    }
+    public void MTiefensuche(String start, String ziel){
+        graph.ModifzierteTiefensuche(start, ziel, 20);
+    }
+    public void Tiefensuche(String start){
+        graph.Tiefensuche(start, 100);
+    }
+    public void Breitensuche(String start){
+        graph.Breitensuche(start, 100);
     }
 }

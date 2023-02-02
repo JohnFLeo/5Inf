@@ -59,7 +59,7 @@ public class GRAPH
         if(startnr > -1 && zielnr > -1){
             matrix[startnr][zielnr] = gewicht;
         }
-        ga.updateKanten(matrix);
+        ga.updateKanten(matrix, knoten[startnr], knoten[zielnr]);
     }
 
     public void KanteHinzufuegen(String startknoten, String zielknoten, int gewicht)
@@ -68,28 +68,29 @@ public class GRAPH
         GerichteteKanteHinzufuegen(zielknoten, startknoten, gewicht);
     }
     //Suchen
-    private void MarkierungLoeschen(){
+    private void MarkierungLoeschen(int delay){
         for(int i = 0; i < knotenanzahl; i = i + 1)
         {
-            knoten[i].MarkierenLoeschen();
+            knoten[i].MarkierenLoeschen(delay);
         }
     }
 
-    public void Breitensuche(String startknoten){
+    public void Breitensuche(String startknoten, int delay){
         INTQUEUE q = new INTQUEUE(knotenanzahl);
-        MarkierungLoeschen();
+        MarkierungLoeschen(delay);
         int nr = KnotennummerGeben(startknoten);
         q.Enqueue(nr);
         System.out.print(knoten[nr].BezeichnungGeben());
-        knoten[nr].Markieren();
-
+        knoten[nr].Markieren(delay);
+        
         while(q.Peek()){
             int i = 0;
             while(i < knotenanzahl){
                 if(matrix[nr][i] > 0 && !knoten[i].MarkierungGeben()){
                     q.Enqueue(i);
                     System.out.print(" -> "+knoten[i].BezeichnungGeben());
-                    knoten[i].Markieren();
+                    knoten[i].Markieren(delay);
+                    //kante markieren
                 }
                 i = i + 1; 
             }
@@ -98,53 +99,55 @@ public class GRAPH
         System.out.println();
     }
 
-    public void Tiefensuche(String startknoten){
-        MarkierungLoeschen();
+    public void Tiefensuche(String startknoten, int delay){
+        MarkierungLoeschen(0);
         int startnr = KnotennummerGeben(startknoten);
         if(startnr > -1 ){
             System.out.print(knoten[startnr].BezeichnungGeben());
-            TSBesuchen(startnr);
+            TSBesuchen(startnr, delay);
         }
         System.out.println();
     }
 
-    private void TSBesuchen(int nr){
-        knoten[nr].Markieren();
-
+    private void TSBesuchen(int nr, int delay){
+        knoten[nr].Markieren(delay);
+        //kante markieren
         for(int i = 0; i < knotenanzahl; i = i + 1)
         {
             if(matrix[nr][i] > 0 && !knoten[i].MarkierungGeben()){
                 System.out.print(" -> "+knoten[i].BezeichnungGeben());
-                TSBesuchen(i);
+                TSBesuchen(i, delay);
             }
         } 
 
     }
 
-    public void ModifzierteTiefensuche(String startknoten,String zielknoten){
-        MarkierungLoeschen();
+    public void ModifzierteTiefensuche(String startknoten,String zielknoten, int delay){
+        MarkierungLoeschen(0);
         int startnr = KnotennummerGeben(startknoten);
         int zielnr = KnotennummerGeben(zielknoten);
         if(startnr > -1 && zielnr > -1 ){ 
             String weg = knoten[startnr].BezeichnungGeben();
             int laenge = 0;
-            MTSBesuchen(startnr, zielnr, weg, laenge);
+            MTSBesuchen(startnr, zielnr, weg, laenge, delay);
         }
         System.out.println();
     }
 
-    private void MTSBesuchen(int nr, int zielnr, String weg, int laenge){
+    private void MTSBesuchen(int nr, int zielnr, String weg, int laenge, int delay){
         if(nr  == zielnr){
             System.out.println(weg + "; Länge: " + laenge);
         }
-        knoten[nr].Markieren();
+        knoten[nr].Markieren(delay);
+        //kante markieren
         for(int i = 0; i < knotenanzahl; i = i + 1)
         {
             if(matrix[nr][i] > 0 && !knoten[i].MarkierungGeben()){
-                MTSBesuchen(i, zielnr, weg+", "+ knoten[i].BezeichnungGeben(), laenge + matrix[nr][i]);
+                MTSBesuchen(i, zielnr, weg+", "+ knoten[i].BezeichnungGeben(), laenge + matrix[nr][i], delay);
             }
         } 
-        knoten[nr].MarkierenLoeschen();
+        knoten[nr].MarkierenLoeschen(delay);
+        //kante demarkieren
     }
     private void KnotenZuruecksetzen()
     {
@@ -153,7 +156,7 @@ public class GRAPH
             knoten[ i ].ZurueckSetzen();
         }
     }
-    public void Dijkstra( String start_knoten, String ziel_knoten )
+    public void Dijkstra( String start_knoten, String ziel_knoten , int delay)
     {
         KnotenZuruecksetzen();
         int nr = KnotennummerGeben( start_knoten );
@@ -164,10 +167,9 @@ public class GRAPH
             while( nr > -1 && nr != ziel_nr )
             {
                 System.out.print(knoten[nr].BezeichnungGeben() + ":");
-                knoten[nr].Markieren();
+                knoten[nr].Markieren(delay);
                 int i = 0;
                 while(i < knotenanzahl){
-                    
                     if(matrix[nr][i] > 0 && !knoten[i].MarkierungGeben()){
                         System.out.print(" "+knoten[i].BezeichnungGeben() );
                         if(knoten[nr].distanz+matrix[nr][i] < knoten[i].distanz){
@@ -194,7 +196,7 @@ public class GRAPH
                 System.out.println();
                 System.out.println( weg );
                 System.out.println( "Länge: " + knoten[ nr ].distanz );
-                knoten[ziel_nr].WegAnzeigen(start_knoten);
+                knoten[ziel_nr].WegAnzeigen(start_knoten, 100);
             }
             else
             {

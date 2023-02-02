@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=GRAPHTEST
+comment1.params=
+comment1.target=void\ Testen()
+comment2.params=
+comment2.target=void\ anzeigen()
+comment3.params=start\ ziel
+comment3.target=void\ Dijkstra(java.lang.String,\ java.lang.String)
+comment4.params=start\ ziel
+comment4.target=void\ MTiefensuche(java.lang.String,\ java.lang.String)
+comment5.params=start
+comment5.target=void\ Tiefensuche(java.lang.String)
+comment6.params=start
+comment6.target=void\ Breitensuche(java.lang.String)
+numComments=7

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=GraphenAnzeige
+comment1.params=maxanz
+comment1.target=GraphenAnzeige(int)
+comment2.params=ka
+comment2.target=void\ addKa(KnotenAnzeige)
+comment3.params=matrix\ start\ ziel
+comment3.target=void\ updateKanten(int[][],\ KNOTEN,\ KNOTEN)
+comment4.params=
+comment4.target=void\ Anzeigen()
+numComments=5

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=KantenAnzeige
+comment1.params=fenster\ ka1\ ka2\ ga
+comment1.target=KantenAnzeige(Fenster,\ KnotenAnzeige,\ KnotenAnzeige,\ GraphenAnzeige)
+comment2.params=
+comment2.target=void\ Anzeigen()
+numComments=3

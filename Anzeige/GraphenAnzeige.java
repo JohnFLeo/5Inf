@@ -7,7 +7,7 @@ public class GraphenAnzeige extends Anzeige
     KnotenAnzeige[] knotenA;
     int anzahl;
     int [][] kanten;
-    Graphics g;
+    
     // Konstruktor
     public GraphenAnzeige(int maxanz)
     {
@@ -15,7 +15,7 @@ public class GraphenAnzeige extends Anzeige
         anzahl = 0;
         knotenA = new KnotenAnzeige[maxanz];
         
-        g = super.f.getGraphicsBuffer();
+        
     }
     // Methoden
     public void addKa(KnotenAnzeige ka){
@@ -27,8 +27,8 @@ public class GraphenAnzeige extends Anzeige
     }
     @Override
     public void Anzeigen(){
-        g.setColor(Color.WHITE);
-        g.fillRect(0,0,f.getSize().width,f.getSize().height);
+        imageG.setColor(Color.WHITE);
+        imageG.fillRect(0,0,f.getSize().width,f.getSize().height);
         for(int i = 0; i< anzahl; i++){
             if(knotenA[i] != null){
                 knotenA[i].updatePos();
@@ -39,7 +39,7 @@ public class GraphenAnzeige extends Anzeige
                 if(kanten[i][j]>0){
                     //g.setColor(Color.GREEN);
                     //g.drawLine(knotenA[i].x, knotenA[i].y, knotenA[j].x, knotenA[j].y);
-                    Graphics2D g2 = (Graphics2D) g;
+                    Graphics2D g2 = (Graphics2D) imageG;
                     g2.setColor(Color.GREEN);
                     g2.setStroke(new BasicStroke(10));
                     g2.draw(new Line2D.Float(knotenA[i].x, knotenA[i].y, knotenA[j].x, knotenA[j].y));
